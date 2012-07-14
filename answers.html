@@ -56,7 +56,13 @@
 	    <p>answer: {{page.answer}}</p>
 	    <p>tags: {{page.tags}}</p>
 	    <p>source: <a href="{{page.source}}">{{page.source}}</a></p>
+	    {% if firstanswer == true %}
+	    {{content}}
+	    {% else %}
+	    {% if page.next %}
 	    <p>try the next question: <a href="{{page.next.url}}">{{page.next.title}}</a></p>
+	    {% endif %}
+	    {% endif %}
 	  </div>
 	</div>
       </div>
