@@ -57,6 +57,15 @@
 	    {% if page.firstanswer == true %}
 	    {{ content }}
 	    {% else %}
+	    {% if page.seealsos %}
+	    <p>see also:
+	      <ul>
+		{% for seealso in page.seealsos %}
+		<li><a href="{{seealso.url}}">{{seealso.title}}</a></li>
+		{% endfor %}
+	      </ul>
+	    </p>
+	    {% endif %}
 	    <p>tags: {{page.tags}}</p>
 	    <p>source: <a href="{{page.source}}">{{page.source}}</a></p>
 	    {% if page.next.url %}
