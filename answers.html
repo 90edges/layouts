@@ -71,7 +71,13 @@
 	      &nbsp;{{tag}}
 	      {% endfor %}
 	    </p>
-	    <p>source: <a href="{{page.source}}">{{page.source}}</a></p>
+	    <p>source:
+	      {% if page.sourcetitle %}
+	      <a href="{{page.sourcetitle}} ({{page.source}})">{{page.source}}</a>
+	      {% else %}
+	      <a href="{{page.source}}">{{page.source}}</a>
+	      {% endif %}
+	    </p>
 	    {% if page.next.url %}
 	    <p>try the next question: <a href="{{page.next.url}}">{{page.next.title}}</a></p>
 	    {% endif %}
